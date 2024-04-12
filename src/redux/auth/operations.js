@@ -1,14 +1,14 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { requestSignUp } from '../../services/authApi';
 
 export const register = createAsyncThunk(
   'auth/register',
-  async (credentials, thunkAPI) => {
+  async (formData, thunkAPI) => {
     try {
-      const response = await axios.post('/users/signup', credentials);
+      const data = await requestSignUp(formData);
       console.log(thunkAPI);
-      console.log(response);
-      return response;
+      console.log(data);
+      return data;
     } catch (err) {
       return thunkAPI.rejectWithValue(err.message);
     }
