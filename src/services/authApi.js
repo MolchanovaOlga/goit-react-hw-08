@@ -13,25 +13,25 @@ export const clearToken = () => {
 };
 
 export const requestSignUp = async formData => {
-  const response = await axios.post('/users/signup', formData);
-  console.log(response);
+  const response = await instance.post('/users/signup', formData);
+  setToken(response.data.token);
   return response.data;
 };
 
 export const requestSignIn = async formData => {
-  const response = await axios.post('/users​/login', formData);
-  console.log(response);
+  const response = await instance.post('/users/login', formData);
+  setToken(response.data.token);
   return response.data;
 };
 
 export const requestLogOut = async () => {
-  const response = await axios.post('/users/logout');
+  const response = await instance.post('/users/logout');
   console.log(response);
   return response.data;
 };
 
 export const requestGetCurrentUser = async () => {
-  const response = await axios.get('/users/current');
+  const response = await instance.get('/users/current');
   console.log(response);
   return response.data;
 };

@@ -2,16 +2,12 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 
-import css from './RegistrationForm.module.css';
+import css from './LoginForm.module.css';
 
-import { register } from '../../redux/auth/operations';
+import { logIn } from '../../redux/auth/operations';
 
-const RegistrationForm = () => {
+const LoginForm = () => {
   const FeedbackSchema = Yup.object().shape({
-    name: Yup.string()
-      .required('User name is required.')
-      .min(2, 'User name must be at least 2 characters!')
-      .max(50, 'User name must be at less than 50 characters!'),
     email: Yup.string()
       .required('Email is required.')
       .email('Must be a valid email!'),
@@ -23,32 +19,17 @@ const RegistrationForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    dispatch(register(values));
+    dispatch(logIn(values));
     actions.resetForm();
   };
 
   return (
     <Formik
-      initialValues={{ name: '', email: '', password: '' }}
+      initialValues={{ email: '', password: '' }}
       onSubmit={handleSubmit}
       validationSchema={FeedbackSchema}
     >
       <Form className={css.form}>
-        <label className={css.label}>
-          <span>Name</span>
-          <Field
-            placeholder="Your name"
-            type="text"
-            name="name"
-            className={css.input}
-          />
-          <ErrorMessage
-            className={css.feedbackError}
-            name="name"
-            as="span"
-            component="span"
-          />
-        </label>
         <label className={css.label}>
           <span>Email</span>
           <Field
@@ -82,13 +63,13 @@ const RegistrationForm = () => {
         <button
           type="submit"
           className={css.button}
-          aria-label="Button for register new user"
+          aria-label="Button for log in user"
         >
-          Sign Up
+          Log in
         </button>
       </Form>
     </Formik>
   );
 };
 
-export default RegistrationForm;
+export default LoginForm;

@@ -12,7 +12,7 @@ import ContactForm from '../../components/ContactForm/ContactForm';
 import Loader from '../../components/Loader/Loader';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 
-const Contacts = () => {
+const ContactsPage = () => {
   const dispatch = useDispatch();
 
   const loading = useSelector(selectContactsIsLoading);
@@ -34,4 +34,4 @@ const Contacts = () => {
   );
 };
 
-export default Contacts;
+export default ContactsPage;
