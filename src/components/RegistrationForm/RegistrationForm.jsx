@@ -37,7 +37,7 @@ const RegistrationForm = () => {
         <label className={css.label}>
           <span>Name</span>
           <Field
-            placeholder="Your name"
+            placeholder="Robbie Williams"
             type="text"
             name="name"
             className={css.input}
@@ -52,7 +52,7 @@ const RegistrationForm = () => {
         <label className={css.label}>
           <span>Email</span>
           <Field
-            placeholder="Your email"
+            placeholder="williams@gmail.com"
             type="text"
             name="email"
             className={css.input}
@@ -67,7 +67,7 @@ const RegistrationForm = () => {
         <label className={css.label}>
           <span>Password</span>
           <Field
-            placeholder="********"
+            placeholder="Enter your password"
             type="password"
             name="password"
             className={css.input}

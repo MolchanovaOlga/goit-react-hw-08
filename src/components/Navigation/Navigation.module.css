@@ -1,0 +1,5 @@
+.navigationContainer {
+  display: flex;
+  gap: 24px;
+  margin-right: 24px;
+}
