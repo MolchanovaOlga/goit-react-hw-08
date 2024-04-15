@@ -1,4 +1,22 @@
 .container {
   display: flex;
   gap: 24px;
+  align-items: center;
+}
+
+.span {
+  display: none;
+}
+
+@media screen and (min-width: 600px) {
+  .span {
+    display: inline;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .button {
+    font-size: 20px;
+    padding: 20px 32px;
+  }
 }

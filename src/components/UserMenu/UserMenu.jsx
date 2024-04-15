@@ -7,8 +7,10 @@ const UserMenu = () => {
   const userData = useSelector(selectUserData);
   return (
     <div className={css.container}>
-      <span>Hello, {userData.name}!</span>
-      <button type="button">Logout</button>
+      <span className={css.span}>Hello, {userData.name}!</span>
+      <button className={css.button} type="button">
+        Logout
+      </button>
     </div>
   );
 };

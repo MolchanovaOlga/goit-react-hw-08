@@ -2,6 +2,19 @@
   min-width: 320px;
   padding: 50px;
   padding-top: 0;
+  background-color: #eaeff8;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1249px) {
+  #root {
+    min-width: 768px;
+  }
+}
+
+@media screen and (min-width: 1250px) {
+  #root {
+    min-width: 1250px;
+  }
 }
 
 .title {

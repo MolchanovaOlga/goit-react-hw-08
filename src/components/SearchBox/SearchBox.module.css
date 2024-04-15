@@ -1,10 +1,16 @@
 .container {
-  max-width: 320px;
+  width: 294px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 10px;
-  margin-bottom: 24px;
+  margin: 48px 0;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 400px;
+  }
 }
 
 .input {

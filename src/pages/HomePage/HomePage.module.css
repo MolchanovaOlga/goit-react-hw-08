@@ -1,0 +1,36 @@
+.container {
+  background-color: #646cff;
+  padding: 48px 16px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    padding: 48px;
+  }
+}
+
+.title {
+  margin: 0 0 48px;
+  font-size: 36px;
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 64px;
+  }
+}
+
+.text {
+  font-size: 18px;
+}
+
+@media screen and (min-width: 768px) {
+  .text {
+    font-size: 20px;
+  }
+}

@@ -1,8 +1,10 @@
+import css from './LoginPage.module.css';
+
 import LoginForm from '../../components/LoginForm/LoginForm';
 
 const LoginPage = () => {
   return (
-    <div>
+    <div className={css.container}>
       <LoginForm />
     </div>
   );
