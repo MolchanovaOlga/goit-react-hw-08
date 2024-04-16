@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import css from './ContactPage.module.css';
+import css from './ContactsPage.module.css';
 
 import { fetchContacts } from '../../redux/contacts/operations';
 import {
@@ -28,11 +28,11 @@ const ContactsPage = () => {
     <div className={css.container}>
       <div className={css.formTitleContainer}>
         <h1 className={css.title}>Phonebook</h1>
-        {loading && <Loader />}
-        {error && <ErrorMessage />}
         <ContactForm />
       </div>
       <SearchBox />
+      {loading && <Loader />}
+      {error && <ErrorMessage />}
       <ContactList />
     </div>
   );

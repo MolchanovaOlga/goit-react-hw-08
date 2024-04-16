@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { ImSearch } from 'react-icons/im';
 
 import css from './SearchBox.module.css';
 
@@ -13,7 +14,10 @@ const SearchBox = () => {
   };
   return (
     <div className={css.container}>
-      <p>Find contacts by name</p>
+      <div className={css.spanContainer}>
+        <ImSearch />
+        <span>Find contacts by name</span>
+      </div>
       <input
         className={css.input}
         value={getFilterVal}

@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { logIn, refreshUser, register } from './operations';
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
+import { logIn, logoutUser, refreshUser, register } from './operations';
 
 const initialState = {
   user: {
@@ -20,34 +20,18 @@ const authSlice = createSlice({
   extraReducers: builder => {
     builder
       //Register
-      .addCase(register.pending, state => {
-        state.loading = true;
-        state.error = null;
-      })
       .addCase(register.fulfilled, (state, action) => {
         state.loading = false;
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
       })
-      .addCase(register.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
-      })
       //Login
-      .addCase(logIn.pending, state => {
-        state.loading = true;
-        state.error = null;
-      })
       .addCase(logIn.fulfilled, (state, action) => {
         state.loading = false;
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
-      })
-      .addCase(logIn.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
       })
       //Refresh
       .addCase(refreshUser.pending, state => {
@@ -62,7 +46,24 @@ const authSlice = createSlice({
       .addCase(refreshUser.rejected, (state, action) => {
         state.isRefreshing = false;
         state.error = action.payload;
-      });
+      })
+      .addCase(logoutUser.fulfilled, () => {
+        return initialState;
+      })
+      .addMatcher(
+        isAnyOf(register.pending, logIn.pending, logoutUser.pending),
+        state => {
+          state.loading = true;
+          state.error = null;
+        }
+      )
+      .addMatcher(
+        isAnyOf(register.rejected, logIn.rejected, logoutUser.rejected),
+        (state, action) => {
+          state.loading = false;
+          state.error = action.payload;
+        }
+      );
   },
 });
 

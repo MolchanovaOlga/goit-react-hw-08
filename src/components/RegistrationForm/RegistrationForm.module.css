@@ -17,6 +17,12 @@
   }
 }
 
+.spanContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .label {
   display: flex;
   flex-direction: column;

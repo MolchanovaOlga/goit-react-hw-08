@@ -2,3 +2,12 @@
   display: flex;
   gap: 24px;
 }
+
+.active {
+  color: #969696;
+}
+
+.link:hover,
+.link:focus {
+  text-decoration: underline;
+}

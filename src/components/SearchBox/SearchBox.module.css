@@ -27,3 +27,9 @@
   border-color: rgb(24, 24, 24);
   outline: none;
 }
+
+.spanContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

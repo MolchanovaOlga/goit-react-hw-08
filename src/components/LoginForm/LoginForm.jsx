@@ -1,6 +1,8 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
+import { RiLockPasswordFill } from 'react-icons/ri';
+import { MdEmail } from 'react-icons/md';
 
 import css from './LoginForm.module.css';
 
@@ -38,7 +40,10 @@ const LoginForm = () => {
     >
       <Form className={css.form}>
         <label className={css.label}>
-          <span>Email</span>
+          <div className={css.spanContainer}>
+            <MdEmail />
+            <span>Email</span>
+          </div>
           <Field
             placeholder="williams@gmail.com"
             type="text"
@@ -53,7 +58,10 @@ const LoginForm = () => {
           />
         </label>
         <label className={css.label}>
-          <span>Password</span>
+          <div className={css.spanContainer}>
+            <RiLockPasswordFill />
+            <span>Password</span>
+          </div>
           <Field
             placeholder="Enter your password"
             type="password"

@@ -5,7 +5,7 @@ const instance = axios.create({
 });
 
 export const setToken = token => {
-  instance.defaults.headers.common.Authorization = `Bearer${token}`;
+  instance.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
 export const clearToken = () => {
@@ -26,12 +26,11 @@ export const requestSignIn = async formData => {
 
 export const requestLogOut = async () => {
   const response = await instance.post('/users/logout');
-  console.log(response);
+  clearToken();
   return response.data;
 };
 
 export const requestGetCurrentUser = async () => {
   const response = await instance.get('/users/current');
-  console.log(response);
   return response.data;
 };

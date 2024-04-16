@@ -25,6 +25,12 @@
   width: 100%;
 }
 
+.spanContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .input {
   box-sizing: border-box;
   width: 100%;

@@ -2,6 +2,8 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { nanoid } from 'nanoid';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
+import { MdPerson } from 'react-icons/md';
+import { MdPhone } from 'react-icons/md';
 
 import css from './ContactForm.module.css';
 
@@ -44,7 +46,10 @@ const ContactForm = () => {
       >
         <Form className={css.form}>
           <label className={css.label}>
-            <span>Name</span>
+            <div className={css.spanContainer}>
+              <MdPerson className={css.icon} />
+              <span>Name</span>
+            </div>
             <Field
               type="text"
               placeholder="Robbie Williams"
@@ -59,7 +64,10 @@ const ContactForm = () => {
             />
           </label>
           <label className={css.label}>
-            <span>Number</span>
+            <div className={css.spanContainer}>
+              <MdPhone className={css.icon} />
+              <span>Number</span>
+            </div>
             <Field
               type="text"
               placeholder="XXX-XXX-XXXX"
