@@ -33,57 +33,59 @@ const LoginForm = () => {
   };
 
   return (
-    <Formik
-      initialValues={{ email: '', password: '' }}
-      onSubmit={handleSubmit}
-      validationSchema={FeedbackSchema}
-    >
-      <Form className={css.form}>
-        <label className={css.label}>
-          <div className={css.spanContainer}>
-            <MdEmail />
-            <span>Email</span>
-          </div>
-          <Field
-            placeholder="williams@gmail.com"
-            type="text"
-            name="email"
-            className={css.input}
-          />
-          <ErrorMessage
-            name="email"
-            as="span"
-            className={css.feedbackError}
-            component="span"
-          />
-        </label>
-        <label className={css.label}>
-          <div className={css.spanContainer}>
-            <RiLockPasswordFill />
-            <span>Password</span>
-          </div>
-          <Field
-            placeholder="Enter your password"
-            type="password"
-            name="password"
-            className={css.input}
-          />
-          <ErrorMessage
-            name="password"
-            as="span"
-            className={css.feedbackError}
-            component="span"
-          />
-        </label>
-        <button
-          type="submit"
-          className={css.button}
-          aria-label="Button for log in user"
-        >
-          Log in
-        </button>
-      </Form>
-    </Formik>
+    <>
+      <Formik
+        initialValues={{ email: '', password: '' }}
+        onSubmit={handleSubmit}
+        validationSchema={FeedbackSchema}
+      >
+        <Form className={css.form}>
+          <label className={css.label}>
+            <div className={css.spanContainer}>
+              <MdEmail />
+              <span>Email</span>
+            </div>
+            <Field
+              placeholder="williams@gmail.com"
+              type="text"
+              name="email"
+              className={css.input}
+            />
+            <ErrorMessage
+              name="email"
+              as="span"
+              className={css.feedbackError}
+              component="span"
+            />
+          </label>
+          <label className={css.label}>
+            <div className={css.spanContainer}>
+              <RiLockPasswordFill />
+              <span>Password</span>
+            </div>
+            <Field
+              placeholder="Enter your password"
+              type="password"
+              name="password"
+              className={css.input}
+            />
+            <ErrorMessage
+              name="password"
+              as="span"
+              className={css.feedbackError}
+              component="span"
+            />
+          </label>
+          <button
+            type="submit"
+            className={css.button}
+            aria-label="Button for log in user"
+          >
+            Log in
+          </button>
+        </Form>
+      </Formik>
+    </>
   );
 };
 

@@ -16,7 +16,7 @@ const SearchBox = () => {
     <div className={css.container}>
       <div className={css.spanContainer}>
         <ImSearch />
-        <span>Find contacts by name</span>
+        <span>Find contacts by name or phone number</span>
       </div>
       <input
         className={css.input}

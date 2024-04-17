@@ -16,6 +16,7 @@ const RegistrationPage = lazy(() =>
 );
 const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
 const ContactsPage = lazy(() => import('./pages/ContactsPage/ContactsPage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
 
 function App() {
   const dispatch = useDispatch();
@@ -53,6 +54,7 @@ function App() {
             />
           }
         />
+        <Route path="*" element={<NotFoundPage replace />}></Route>
       </Routes>
     </Layout>
   );

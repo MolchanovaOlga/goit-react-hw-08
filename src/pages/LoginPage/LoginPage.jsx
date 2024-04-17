@@ -9,7 +9,6 @@ import DocumentTitle from '../../components/DocumentTitle/DocumentTitle';
 
 const LoginPage = () => {
   const loading = useSelector(selectUserIsLoading);
-
   return (
     <>
       <DocumentTitle>Login</DocumentTitle>

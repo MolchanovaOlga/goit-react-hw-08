@@ -1,7 +1,9 @@
 import { MdPerson } from 'react-icons/md';
 import { MdPhone } from 'react-icons/md';
+import { Toaster } from 'react-hot-toast';
 
 import css from './Contact.module.css';
+import { notifySuccessfull } from '../../services/notifications';
 
 const Contact = ({ name, phone, id, handleDelete }) => {
   return (
@@ -18,12 +20,15 @@ const Contact = ({ name, phone, id, handleDelete }) => {
       </div>
       <button
         type="button"
+        aria-label="Button for delete contact"
         onClick={() => {
           handleDelete(id);
+          notifySuccessfull('You have successfully deleted the contact.');
         }}
       >
         Delete
       </button>
+      <Toaster />
     </>
   );
 };

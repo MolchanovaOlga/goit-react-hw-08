@@ -4,10 +4,12 @@ import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { MdPerson } from 'react-icons/md';
 import { MdPhone } from 'react-icons/md';
+import { Toaster } from 'react-hot-toast';
 
 import css from './ContactForm.module.css';
 
 import { addContact } from '../../redux/contacts/operations';
+import { notifySuccessfull } from '../../services/notifications';
 
 const ContactForm = () => {
   const FeedbackSchema = Yup.object().shape({
@@ -17,11 +19,11 @@ const ContactForm = () => {
       .required('Required'),
     number: Yup.string()
       .min(7, 'Too Short!')
-      .max(9, 'Too Long!')
+      .max(12, 'Too Long!')
       .required('Required')
       .matches(
-        /^\d{3}-\d{2}-\d{2}$/,
-        'Number is not valid, enter please ххх-хх-хх'
+        /^\d{3}-\d{3}-\d{4}$/,
+        'Number is not valid, enter please XXX-XXX-XXXX'
       ),
   });
 
@@ -34,6 +36,8 @@ const ContactForm = () => {
   const handleSubmit = (values, actions) => {
     values.id = nanoid();
     addContacts(values);
+    notifySuccessfull('You have successfully added a contact');
+    console.log('sucsses');
     actions.resetForm();
   };
 
@@ -81,11 +85,16 @@ const ContactForm = () => {
               component="span"
             />
           </label>
-          <button type="submit" className={css.button}>
+          <button
+            type="submit"
+            className={css.button}
+            aria-label="Button for add contact"
+          >
             Add contact
           </button>
         </Form>
       </Formik>
+      <Toaster />
     </div>
   );
 };

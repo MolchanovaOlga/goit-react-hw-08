@@ -12,10 +12,10 @@
 }
 
 .active {
-  color: #969696;
+  color: #646cff;
 }
 
 .link:hover,
 .link:focus {
-  text-decoration: underline;
+  color: #646cff;
 }
