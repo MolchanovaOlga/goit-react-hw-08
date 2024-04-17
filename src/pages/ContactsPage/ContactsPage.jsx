@@ -13,6 +13,7 @@ import ContactList from '../../components/ContactList/ContactList';
 import ContactForm from '../../components/ContactForm/ContactForm';
 import Loader from '../../components/Loader/Loader';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+import DocumentTitle from '../../components/DocumentTitle/DocumentTitle';
 
 const ContactsPage = () => {
   const dispatch = useDispatch();
@@ -25,16 +26,19 @@ const ContactsPage = () => {
   }, [dispatch]);
 
   return (
-    <div className={css.container}>
-      <div className={css.formTitleContainer}>
-        <h1 className={css.title}>Phonebook</h1>
-        <ContactForm />
+    <>
+      <DocumentTitle>Contacts</DocumentTitle>
+      <div className={css.container}>
+        <div className={css.formTitleContainer}>
+          <h1 className={css.title}>Phonebook</h1>
+          <ContactForm />
+        </div>
+        <SearchBox />
+        {loading && <Loader />}
+        {error && <ErrorMessage />}
+        <ContactList />
       </div>
-      <SearchBox />
-      {loading && <Loader />}
-      {error && <ErrorMessage />}
-      <ContactList />
-    </div>
+    </>
   );
 };
 

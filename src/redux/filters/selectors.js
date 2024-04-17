@@ -1,3 +1,3 @@
-export const selectFilterName = state => {
-  return state.filters.name;
+export const selectFilter = state => {
+  return state.filters.searchQuery;
 };
