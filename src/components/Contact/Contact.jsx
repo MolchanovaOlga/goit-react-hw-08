@@ -6,6 +6,19 @@ import css from './Contact.module.css';
 import { notifySuccessfull } from '../../services/notifications';
 
 const Contact = ({ name, phone, id, handleDelete }) => {
+  const handleClick = () => {
+    if (
+      window.confirm(
+        `Do you really want to delete this contact?\n${name} ${phone}`
+      )
+    ) {
+      handleDelete(id);
+      notifySuccessfull('You deleted the contact.');
+    } else {
+      return;
+    }
+  };
+
   return (
     <>
       <div className={css.container}>
@@ -21,10 +34,7 @@ const Contact = ({ name, phone, id, handleDelete }) => {
       <button
         type="button"
         aria-label="Button for delete contact"
-        onClick={() => {
-          handleDelete(id);
-          notifySuccessfull('You have successfully deleted the contact.');
-        }}
+        onClick={handleClick}
       >
         Delete
       </button>

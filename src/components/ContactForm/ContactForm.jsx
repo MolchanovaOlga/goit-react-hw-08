@@ -36,7 +36,7 @@ const ContactForm = () => {
   const handleSubmit = (values, actions) => {
     values.id = nanoid();
     addContacts(values);
-    notifySuccessfull('You have successfully added a contact');
+    notifySuccessfull('You added a contact');
     console.log('sucsses');
     actions.resetForm();
   };
