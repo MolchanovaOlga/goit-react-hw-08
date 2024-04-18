@@ -34,3 +34,20 @@ export const requestGetCurrentUser = async () => {
   const response = await instance.get('/users/current');
   return response.data;
 };
+
+// contacts
+
+export const requestGetContacts = async () => {
+  const response = await instance.get('/contacts');
+  return response.data;
+};
+
+export const requestAddContact = async formData => {
+  const response = await instance.post('/contacts', formData);
+  return response.data;
+};
+
+export const requesDeleteContact = async idContact => {
+  const response = await instance.delete(`/contacts/${idContact}`);
+  return response.data;
+};

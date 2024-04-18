@@ -1,5 +1,4 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { nanoid } from 'nanoid';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { MdPerson } from 'react-icons/md';
@@ -34,10 +33,8 @@ const ContactForm = () => {
   };
 
   const handleSubmit = (values, actions) => {
-    values.id = nanoid();
     addContacts(values);
     notifySuccessfull('You added a contact');
-    console.log('sucsses');
     actions.resetForm();
   };
 

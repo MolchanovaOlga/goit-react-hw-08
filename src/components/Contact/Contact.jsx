@@ -22,10 +22,10 @@ const Contact = ({ name, phone, id, handleDelete }) => {
   return (
     <>
       <div className={css.container}>
-        <p className={css.text}>
+        <h2 className={css.title}>
           <MdPerson className={css.icon} />
           {name}
-        </p>
+        </h2>
         <p className={css.text}>
           <MdPhone className={css.icon} />
           {phone}
@@ -34,7 +34,7 @@ const Contact = ({ name, phone, id, handleDelete }) => {
       <button
         type="button"
         aria-label="Button for delete contact"
-        onClick={handleClick}
+        onClick={handleClick} 
       >
         Delete
       </button>

@@ -43,8 +43,9 @@
 
 .input:hover,
 .input:focus {
-  border-color: rgb(24, 24, 24);
+  border-color: #646cff;
   outline: none;
+  transition: border-color 200ms linear;
 }
 
 .input::placeholder {

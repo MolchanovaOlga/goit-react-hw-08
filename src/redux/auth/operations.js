@@ -5,7 +5,7 @@ import {
   requestSignIn,
   requestSignUp,
   setToken,
-} from '../../services/authApi';
+} from '../../services/api';
 
 export const register = createAsyncThunk(
   'auth/register',

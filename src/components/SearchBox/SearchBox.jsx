@@ -16,12 +16,13 @@ const SearchBox = () => {
     <div className={css.container}>
       <div className={css.spanContainer}>
         <ImSearch />
-        <span>Find contacts by name or phone number</span>
+        <span>Find contacts</span>
       </div>
       <input
         className={css.input}
         value={getFilterVal}
         onChange={handleImputFilterVal}
+        placeholder="Enter name or phone number"
       />
     </div>
   );
