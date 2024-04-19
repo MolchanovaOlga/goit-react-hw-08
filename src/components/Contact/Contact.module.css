@@ -37,3 +37,37 @@
   height: 24px;
   fill: rgb(24, 24, 24);
 }
+
+.btnsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn {
+  background-color: transparent;
+}
+
+.btn:hover .deleteIcon,
+.btn:focus .deleteIcon {
+  fill: #fff;
+  transition: fill 200ms linear;
+}
+
+.deleteIcon {
+  fill: #757cff;
+  width: 24px;
+  height: 24px;
+}
+
+.btn:hover .editIcon,
+.btn:focus .editIcon {
+  stroke: #fff;
+  transition: fill 200ms linear;
+}
+
+.editIcon {
+  stroke: #757cff;
+  width: 24px;
+  height: 24px;
+}

@@ -38,7 +38,13 @@ const HomePage = () => {
             <div className={css.iconContainer}>
               <IoCheckmarkCircleSharp className={css.checkIcon} />
             </div>
-            <p>Delete an invalid contact.</p>
+            <p>Edit a contact's name or number.</p>
+          </li>
+          <li className={css.item}>
+            <div className={css.iconContainer}>
+              <IoCheckmarkCircleSharp className={css.checkIcon} />
+            </div>
+            <p>Delete the unnecessary contact.</p>
           </li>
         </ul>
       </div>

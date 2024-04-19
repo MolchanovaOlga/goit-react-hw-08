@@ -51,3 +51,11 @@ export const requesDeleteContact = async idContact => {
   const response = await instance.delete(`/contacts/${idContact}`);
   return response.data;
 };
+
+export const requesEditContact = async ({ id, name, number }) => {
+  const response = await instance.patch(`/contacts/${id}`, {
+    name,
+    number,
+  });
+  return response.data;
+};

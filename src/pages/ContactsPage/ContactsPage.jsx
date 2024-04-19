@@ -34,9 +34,9 @@ const ContactsPage = () => {
           <ContactForm />
         </div>
         <SearchBox />
+        <ContactList />
         {loading && <Loader />}
         {error && <ErrorMessage />}
-        <ContactList />
       </div>
     </>
   );

@@ -53,13 +53,10 @@ button {
   align-items: center;
   justify-content: center;
 }
-button:hover {
+button:hover,
+button:focus {
   background-color: #535bf2;
   transition: background-color 200ms linear;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
 @media (prefers-color-scheme: light) {

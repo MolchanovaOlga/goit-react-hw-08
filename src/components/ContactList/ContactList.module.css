@@ -1,10 +1,22 @@
 .list {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  max-width: 100%;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  place-items: center;
+  grid-gap: 16px;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+@media screen and (min-width: 680px) and (max-width: 1300px) {
+  .list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .list {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .item {
@@ -19,9 +31,13 @@
   font-size: 14px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 900px) {
   .item {
     width: 380px;
     font-size: 16px;
   }
+}
+
+.text {
+  color: #757cff;
 }

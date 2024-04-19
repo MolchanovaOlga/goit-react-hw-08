@@ -1,15 +1,26 @@
 import { MdPerson } from 'react-icons/md';
 import { MdPhone } from 'react-icons/md';
-import { Toaster } from 'react-hot-toast';
+import { LuFileEdit } from 'react-icons/lu';
+import { RiDeleteBin2Line } from 'react-icons/ri';
+import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 
 import css from './Contact.module.css';
 import { notifySuccessfull } from '../../services/notifications';
+import { editContact } from '../../redux/contacts/operations';
+import EditFormModal from '../EditFormModal/EditFormModal';
+import scrollController from '../../services/noScroll';
 
-const Contact = ({ name, phone, id, handleDelete }) => {
-  const handleClick = () => {
+const Contact = ({ name, number, id, handleDelete }) => {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [editedContact, setEditedContact] = useState({ id, name, number });
+
+  const dispatch = useDispatch();
+
+  const handleClickDelete = () => {
     if (
       window.confirm(
-        `Do you really want to delete this contact?\n${name} ${phone}`
+        `Do you really want to delete this contact?\n${name} ${number}`
       )
     ) {
       handleDelete(id);
@@ -18,6 +29,27 @@ const Contact = ({ name, phone, id, handleDelete }) => {
       return;
     }
   };
+
+  const handleClickSaveEdition = () => {
+    dispatch(editContact(editedContact));
+    notifySuccessfull(`Contact ${name}  has been updated successfully.`);
+  };
+
+  const handleChangeName = ev =>
+    setEditedContact({ ...editedContact, name: ev.target.value });
+
+  const handleChangeNumber = ev =>
+    setEditedContact({ ...editedContact, number: ev.target.value });
+
+  function openModal() {
+    setModalIsOpen(true);
+    scrollController.disabledScroll();
+  }
+
+  function closeModal() {
+    setModalIsOpen(false);
+    scrollController.enabledScroll();
+  }
 
   return (
     <>
@@ -28,17 +60,36 @@ const Contact = ({ name, phone, id, handleDelete }) => {
         </h2>
         <p className={css.text}>
           <MdPhone className={css.icon} />
-          {phone}
+          {number}
         </p>
       </div>
-      <button
-        type="button"
-        aria-label="Button for delete contact"
-        onClick={handleClick} 
-      >
-        Delete
-      </button>
-      <Toaster />
+      <div className={css.btnsContainer}>
+        <button
+          className={css.btn}
+          type="button"
+          aria-label="Button for edit contact"
+          onClick={openModal}
+        >
+          <LuFileEdit className={css.editIcon} />
+        </button>
+        <button
+          className={css.btn}
+          type="button"
+          aria-label="Button for delete contact"
+          onClick={handleClickDelete}
+        >
+          <RiDeleteBin2Line className={css.deleteIcon} />
+        </button>
+      </div>
+
+      <EditFormModal
+        isOpen={modalIsOpen}
+        closeModal={closeModal}
+        data={editedContact}
+        handleChangeName={handleChangeName}
+        handleChangeNumber={handleChangeNumber}
+        handleSave={handleClickSaveEdition}
+      />
     </>
   );
 };
