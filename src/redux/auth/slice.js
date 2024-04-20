@@ -47,6 +47,7 @@ const authSlice = createSlice({
         state.isRefreshing = false;
         state.error = action.payload;
       })
+      //Logout
       .addCase(logoutUser.fulfilled, () => {
         return initialState;
       })

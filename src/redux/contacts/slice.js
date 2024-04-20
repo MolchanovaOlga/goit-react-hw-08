@@ -5,6 +5,7 @@ import {
   fetchContacts,
   editContact,
 } from './operations';
+import { logoutUser } from '../auth/operations';
 
 const contactsSlice = createSlice({
   name: 'contacts',
@@ -35,6 +36,9 @@ const contactsSlice = createSlice({
         if (editedIndex === -1) {
           return;
         }
+      })
+      .addCase(logoutUser.fulfilled, state => {
+        state.items = [];
       })
       //
       .addMatcher(
